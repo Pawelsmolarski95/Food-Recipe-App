@@ -7,7 +7,7 @@ const closeBtn = document.querySelector('.btn-close');
 console.log(closeBtn);
 // const descriptionWrapper = document.querySelector('.meal-description-wrapper');
 const mealDescription = document.querySelector('.meal-description');
-const renderDescripton = document.querySelector('.renderDescripton')
+const renderDescripton = document.querySelector('.renderDescripton');
 //listenery//
 
 serachBtn.addEventListener('click', getMealList);
