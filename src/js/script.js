@@ -2,15 +2,20 @@
 const serachBtn = document.getElementById('btn-main-search');
 console.log(serachBtn);
 const containerFood = document.querySelector('.container-food');
-
+console.log(containerFood);
 const closeBtn = document.querySelector('.btn-close');
-
+console.log(closeBtn);
+// const descriptionWrapper = document.querySelector('.meal-description-wrapper');
 const mealDescription = document.querySelector('.meal-description');
-console.log(mealDescription);
+const renderDescripton = document.querySelector('.renderDescripton')
 //listenery//
 
 serachBtn.addEventListener('click', getMealList);
 containerFood.addEventListener('click',getMealRecipe);
+closeBtn.addEventListener('click', () => {
+  mealDescription.classList.add('hidden');
+});
+
 
 
 function getMealList(){
@@ -29,7 +34,7 @@ function getMealList(){
                 </div>
                 <div class="food-single-box-description">
                     <h5>${meal.strMeal}</h5>
-                    <div class="btn-div-recipe">
+                    <div class="btn-div-recipe" >
                         <a href="#" id = "${meal.idMeal}" class="btn-recipe">Get Recipe</a>
                     </div>
                 </div>
@@ -56,16 +61,12 @@ function getMealRecipe(e){
         
   }
 }
+
 function mealsRecipeModal(meal){
   console.log(meal); 
   meal = meal[0]; 
   let html = 
-        `<div class="meal-description-wrapper">
-         <div class="meal-description-btn">      
-            <button class="btn-close">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
+        `
         <div class="meal-description-title">
             <h2>${meal.strMeal}</h2>
             <p>${meal.strCategory}</p>
@@ -77,20 +78,10 @@ function mealsRecipeModal(meal){
             <a href="#"><h3>Watch video</h3></a>
         </div>  
     `;
-  console.log(html);
+  mealDescription.classList.remove('hidden');  
+  renderDescripton.innerHTML = html;
   
- 
-  mealDescription.innerHTML = html;
-  mealDescription.classList.remove('hidden');
-  // hiddenDescription();
+  
 }
 
 
-// function hiddenDescription(){
-//   if(!mealDescription.classList.contains('hidden')){
-  
-//     closeBtn.addEventListener('click', function(){
-//       mealDescription.classList.add('hidden');
-//     });
-//   }
-// }
