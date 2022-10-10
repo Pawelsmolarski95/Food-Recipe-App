@@ -8,9 +8,15 @@ console.log(closeBtn);
 // const descriptionWrapper = document.querySelector('.meal-description-wrapper');
 const mealDescription = document.querySelector('.meal-description');
 const renderDescripton = document.querySelector('.renderDescripton');
-//listenery//
-
+const inputSearch = document.getElementById('inputSearch');
+const headerSearch = document.querySelector('.header-search');
 serachBtn.addEventListener('click', getMealList);
+inputSearch.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    getMealList();
+  }
+});
+
 containerFood.addEventListener('click',getMealRecipe);
 closeBtn.addEventListener('click', () => {
   mealDescription.classList.add('hidden');
@@ -19,6 +25,9 @@ closeBtn.addEventListener('click', () => {
 
 
 function getMealList(){
+  
+  headerSearch.classList.remove('startPosition');
+  
   let inputSearch = document.getElementById('inputSearch').value.trim();
   
   fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${inputSearch}`)

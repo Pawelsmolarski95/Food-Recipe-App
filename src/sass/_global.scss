@@ -8,7 +8,13 @@
   
 /* Header */
 .header-search {
-  margin-top: 30px;
+  margin-top: 40px;
+  transition: all 0.3s ease; 
+}
+
+.startPosition {
+  margin-top: 235px;
+  
 }
 
 .header-description {
@@ -62,7 +68,11 @@
       position: absolute;
       top: 20px;
       left: 503px;
-            
+        
+      i {
+        color: $color-white;
+        font-size: 18px;
+      }
     }
         
   }
@@ -246,5 +256,30 @@
   }
 }
     
-
+@media screen and (max-width: 767px) {
+  .header-description {
+    text-align: center;
     
+  
+    .btn-search {
+      max-width: 320px;
+      
+      input {
+        max-width: 320px;
+      }
+      
+      button {
+        left: 305px;
+      }
+    }
+  } 
+
+  .meal-description-title {
+    font-size: 12px;
+    text-align: justify;
+     
+    h2 {
+      text-align: center;
+    }
+  }
+}
